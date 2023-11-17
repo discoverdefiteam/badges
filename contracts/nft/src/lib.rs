@@ -6,7 +6,7 @@ pub mod state;
 pub mod entry {
     use badge_std::Response;
     use cosmwasm_std::{
-        entry_point, to_json_binary, Binary, Deps, DepsMut, Empty, Env, MessageInfo, StdResult,
+        entry_point, to_json_binary, Binary, Deps, DepsMut, Env, MessageInfo, StdResult,
     };
     use badge721_base::ContractError;
     use badges::nft::{ExecuteMsg, InstantiateMsg, QueryMsg};

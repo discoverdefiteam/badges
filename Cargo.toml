@@ -3,6 +3,7 @@ members = [
     "contracts/*",
     "packages/*",
     ]
+resolver = "2"
 
 [workspace.package]
 version    = "0.1.0"
@@ -30,6 +31,41 @@ sha2            = "0.10"
 thiserror       = "1"
 cw-ownable           = "0.5.1"
 url                  = "2.2.2"
+badge721-base   = { version = "0.1.0", path = "contracts/badge721-base" }
+hub             = { version = "0.1.0", path = "contracts/hub" }
+nft             = { version = "0.1.0", path = "contracts/nft" }
+badge-fee       = { version = "0.1.0", path = "packages/badge-fee" }
+badge-std       = { version = "0.1.0", path = "packages/badge-std" }
+badge721        = { version = "0.1.0", path = "packages/badge721" }
+cw-metadata     = { version = "0.1.0", path = "packages/cw-metadata" }
+
+[profile.release.package.badge721-base]
+codegen-units = 1
+incremental   = false
+
+[profile.release.package.hub]
+codegen-units = 1
+incremental   = false
+
+[profile.release.package.nft]
+codegen-units = 1
+incremental   = false
+
+[profile.release.package.badge-fee]
+codegen-units = 1
+incremental   = false
+
+[profile.release.package.badge721]
+codegen-units = 1
+incremental   = false
+
+[profile.release.package.cw-metadata]
+codegen-units = 1
+incremental   = false
+
+[profile.release.package.badge-std]
+codegen-units = 1
+incremental   = false
 
 [profile.release]
 codegen-units    = 1
