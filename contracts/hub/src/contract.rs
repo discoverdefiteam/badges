@@ -1,5 +1,5 @@
 use cosmwasm_std::{
-    entry_point, to_json_binary, Binary, Deps, DepsMut, Empty, Env, MessageInfo, StdResult,
+    entry_point, to_json_binary, Binary, Deps, DepsMut, Env, MessageInfo, StdResult,
 };
 use badge_std::Response;
 
@@ -8,7 +8,7 @@ use badges::{
     Badge,
 };
 
-use crate::{error::ContractError, execute, query, upgrades};
+use crate::{error::ContractError, execute, query};
 
 pub const CONTRACT_NAME: &str = "crates.io:badge-hub";
 pub const CONTRACT_VERSION: &str = env!("CARGO_PKG_VERSION");
@@ -129,22 +129,22 @@ pub fn query(deps: Deps, _env: Env, msg: QueryMsg) -> StdResult<Binary> {
     }
 }
 
-#[entry_point]
-pub fn migrate(deps: DepsMut, _env: Env, _msg: Empty) -> Result<Response, ContractError> {
-    let cw2::ContractVersion {
-        contract,
-        version,
-    } = cw2::get_contract_version(deps.storage)?;
+// #[entry_point]
+// pub fn migrate(deps: DepsMut, _env: Env, _msg: Empty) -> Result<Response, ContractError> {
+//     let cw2::ContractVersion {
+//         contract,
+//         version,
+//     } = cw2::get_contract_version(deps.storage)?;
 
-    if contract != CONTRACT_NAME {
-        return Err(ContractError::incorrect_contract_name(CONTRACT_NAME, contract));
-    }
+//     if contract != CONTRACT_NAME {
+//         return Err(ContractError::incorrect_contract_name(CONTRACT_NAME, contract));
+//     }
 
-    // in the previous v1.1 update, we forgot to set the contract version to `1.1.0`
-    // so for now it's still `1.0.0`
-    if version != "1.0.0" {
-        return Err(ContractError::incorrect_contract_version("1.0.0", version));
-    }
+//     // in the previous v1.1 update, we forgot to set the contract version to `1.1.0`
+//     // so for now it's still `1.0.0`
+//     if version != "1.0.0" {
+//         return Err(ContractError::incorrect_contract_version("1.0.0", version));
+//     }
 
-    upgrades::v1_2::migrate(deps).map_err(ContractError::from)
-}
+//     upgrades::v1_2::migrate(deps).map_err(ContractError::from)
+// }

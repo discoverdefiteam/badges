@@ -6,4 +6,4 @@ pub mod fee;
 pub mod helpers;
 pub mod query;
 pub mod state;
-pub mod upgrades;
+// pub mod upgrades;

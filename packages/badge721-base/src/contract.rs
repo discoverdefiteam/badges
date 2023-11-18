@@ -83,7 +83,6 @@ where
             description: msg.collection_info.description,
             image: msg.collection_info.image,
             external_link: msg.collection_info.external_link,
-            explicit_content: msg.collection_info.explicit_content,
             start_trading_time: msg.collection_info.start_trading_time,
             royalty_info,
         };
@@ -226,7 +225,6 @@ where
             Url::parse(collection.external_link.as_ref().unwrap())?;
         }
 
-        collection.explicit_content = collection_msg.explicit_content;
 
         if let Some(Some(new_royalty_info_response)) = collection_msg.royalty_info {
             let last_royalty_update = self.royalty_updated_at.load(deps.storage)?;
@@ -374,7 +372,6 @@ where
             description: info.description,
             image: info.image,
             external_link: info.external_link,
-            explicit_content: info.explicit_content,
             start_trading_time: info.start_trading_time,
             royalty_info: royalty_info_res,
         })

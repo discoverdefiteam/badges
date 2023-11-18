@@ -60,3 +60,9 @@ The Hub contract implements two methods, `purge_keys` and `purge_owners`, which 
 ## License
 
 Contents of this repository are open source under [GNU General Public License v3](./LICENSE) or later.
+
+
+#### Hub instantiate msg
+```
+'{"fee_rate": {"key": "1000000000000000000","metadata": "500000000000000000"}}'
+```

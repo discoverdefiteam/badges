@@ -30,8 +30,8 @@ export function suppressFetchAPIWarning() {
 }
 
 const RPC_URLS: { [key: string]: string } = {
-  mainnet: "https://rpc.stargaze-apis.com:443",
-  testnet: "https://rpc.elgafar-1.stargaze-apis.com:443",
+  mainnet: "http://localhost:26657",
+  testnet: "http://localhost:26657",
   localhost: "http://localhost:26657",
 };
 
@@ -44,7 +44,7 @@ export async function createSigningClient(network: string, wallet: DirectSecp256
 
   process.stdout.write("creating signing client... ");
   const client = await SigningCosmWasmClient.connectWithSigner(rpcUrl, wallet, {
-    gasPrice: GasPrice.fromString("0ustars"),
+    gasPrice: GasPrice.fromString("5000000uterpx"),
   });
   console.log("success!");
 

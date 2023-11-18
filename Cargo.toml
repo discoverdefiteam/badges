@@ -31,12 +31,12 @@ sha2            = "0.10"
 thiserror       = "1"
 cw-ownable           = "0.5.1"
 url                  = "2.2.2"
-badge721-base   = { version = "0.1.0", path = "contracts/badge721-base" }
 hub             = { version = "0.1.0", path = "contracts/hub" }
 nft             = { version = "0.1.0", path = "contracts/nft" }
 badge-fee       = { version = "0.1.0", path = "packages/badge-fee" }
 badge-std       = { version = "0.1.0", path = "packages/badge-std" }
 badge721        = { version = "0.1.0", path = "packages/badge721" }
+badge721-base   = { version = "0.1.0", path = "packages/badge721-base" }
 cw-metadata     = { version = "0.1.0", path = "packages/cw-metadata" }
 
 [profile.release.package.badge721-base]
@@ -68,11 +68,10 @@ codegen-units = 1
 incremental   = false
 
 [profile.release]
+rpath            = false
+lto              = true
+overflow-checks  = true
+opt-level        = 3
 codegen-units    = 1
 debug            = false
 debug-assertions = false
-incremental      = false
-lto              = true
-opt-level        = 3
-overflow-checks  = true
-rpath            = false

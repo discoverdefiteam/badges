@@ -9,15 +9,20 @@ repository  = { workspace = true }
 license     = { workspace = true }
 keywords    = { workspace = true }
 
+exclude = [
+  # Those files are rust-optimizer artifacts. You might want to commit them for convenience but they should not be part of the source code publication.
+  "contract.wasm",
+  "hash.txt",
+]
+
 [lib]
 crate-type = ["cdylib", "rlib"]
-doctest    = false
 
 [features]
+backtraces = ["cosmwasm-std/backtraces"]
 library = []
 
 [dependencies]
-badges          = { path = "../badges" }
 cosmwasm-schema = { workspace = true }
 cosmwasm-std    = { workspace = true }
 cw-item-set     = { workspace = true }
@@ -27,9 +32,10 @@ cw2             = { workspace = true }
 cw721-base      = { workspace = true, features = ["library"] }
 hex             = { workspace = true }
 serde           = { workspace = true }
+badges          = { path = "../../packages/badges" }
 badge-fee       = { path = "../../packages/badge-fee" }
 badge721        = { path = "../../packages/badge721" }
-badge721-base   = { path = "../badge721-base" }
+badge721-base   = { path = "../../packages/badge721-base" }
 cw-metadata     = { path = "../../packages/cw-metadata" }
 badge-std       = { path = "../../packages/badge-std" }
 sha2            = { workspace = true }

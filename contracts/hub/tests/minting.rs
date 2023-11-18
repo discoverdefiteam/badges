@@ -1,7 +1,6 @@
 use cosmwasm_std::testing::{mock_dependencies, MockApi, MockQuerier, MockStorage};
 use cosmwasm_std::{attr, to_json_binary, Addr, Empty, OwnedDeps, StdResult, Storage, SubMsg, WasmMsg};
 use k256::ecdsa::{SigningKey, VerifyingKey};
-use badge721_base::msg::ExecuteMsg::Mint;
 use cw_metadata::Metadata;
 
 use badge_hub::error::ContractError;
